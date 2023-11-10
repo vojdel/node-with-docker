@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  backend:
+    image: node:18
+    container_name: backend
+    build: .
+    ports:
+      - "5000:3000"
+    volumes: 
+      - .:/usr/src/app
+    command: node /usr/src/app/server.js
+  
+  db:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
